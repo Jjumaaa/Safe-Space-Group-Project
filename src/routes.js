@@ -8,7 +8,7 @@ import Viewblogs from "./pages/Viewblogs";
 import Viewthecommunity from "./pages/Viewthecommunity";
 
 
-const routes =[
+const routes = [
     {
         path:"/",
         element:<App/>,
@@ -50,11 +50,8 @@ const routes =[
 
                 ]
             }
-            
-            
-            
-
-        ]
-        
-    }
+             ]
+         }
 ]
+
+export default routes
