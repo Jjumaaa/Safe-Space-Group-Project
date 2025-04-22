@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       
       <header>
-        {/* <h1>Safe-space!</h1> */}
+        
         <Navbar />
       </header>
       

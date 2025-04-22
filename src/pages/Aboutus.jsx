@@ -2,7 +2,13 @@ import React from 'react'
 
 const Aboutus = () => {
   return (
-    <div>imagine ni mimi haiyaaaaaaaaaaaaaa</div>
+    <div>
+        <header><Navbar/></header>
+    <div>
+        
+        imagine ni mimi haiyaaaaaaaaaaaaaa
+        </div>
+        </div>
   )
 }
 
