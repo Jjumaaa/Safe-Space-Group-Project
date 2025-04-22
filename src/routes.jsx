@@ -6,12 +6,13 @@ import Editpost from "./pages/Editpost";
 import Ourteam from "./pages/Ourteam";
 import Viewblogs from "./pages/Viewblogs";
 import Viewthecommunity from "./pages/Viewthecommunity";
+import Home from "./pages/Home";
 
 
 const routes = [
     {
         path:"/",
-        element:<App/>,
+        element: <App />,
         errorElement:<ErrorPage />,
         children:[
             {
@@ -43,7 +44,7 @@ const routes = [
                 element:<Ourteam />,
                 children:[
                     {
-                    path:"/contactUs",
+                    path:"contactUs",
                     element:<Contactus />
                     }
 

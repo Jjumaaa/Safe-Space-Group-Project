@@ -1,8 +1,13 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 const Ourteam = () => {
   return (
-    <div>Ourteam</div>
+    <div>Ourteam
+    <Outlet/>
+
+
+    </div>
   )
 }
 
