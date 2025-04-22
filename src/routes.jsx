@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import ErrorPage from './pages/ErrorPage'
 import Postpage from './pages/Postpage'
 import Aboutus from './pages/Aboutus'
+import LoginPage from './pages/LoginPage'
 
 
 
@@ -15,15 +16,20 @@ const routes = [
         errorElement:<ErrorPage />
     },
     {
-        path:"/home",
+        path:"/",
         element:<Home/>,
         errorElement:<ErrorPage />,
     },   
             {    
-                path:"postpage",
+                path:"/postpage",
                 element:<Postpage/>,
                 errorElement:<ErrorPage />,
             },
+          {  path:"/login",
+        element:<LoginPage/>,
+        errorElement:<ErrorPage />,
+    },   
+
         
     
     {

@@ -1,13 +1,13 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const Aboutus = () => {
   return (
     <div>
         <header><Navbar/></header>
-    <div>
-        
-        imagine ni mimi haiyaaaaaaaaaaaaaa
-        </div>
+   
+         imagine ni mimi haiyaaaaaaaaaaaaaa
+       
         </div>
   )
 }
