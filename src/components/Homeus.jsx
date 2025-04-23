@@ -11,4 +11,4 @@ const Homeus = () => {
   )
 }
 
-export default Homeus
+export default Homeus;
