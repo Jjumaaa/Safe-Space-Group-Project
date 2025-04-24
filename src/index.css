@@ -105,10 +105,10 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  background-color: #1e293b;
+  background-color: #f7f9fc;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+  background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLv9xjlSjV03F2VG28Wgpp2_f4EQzh6pe3-g&s)
 }
 
 .home {
@@ -118,30 +118,29 @@
 }
 
 .welcome {
-  background-color:#38bdf8;
+  background-color: #67023D;
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   text-align: center;
   max-width: 600px;
   width: 100%;
-  color: #000;
+  color: #f7f9fc;
   
 }
 
  .welcome:hover {
   transform: translateY(-4px);
-  box-shadow: white;
 } 
 
 .text1 {
-  color:#38bdf8;
+  color: #4a4a4a;
   font-size: 45px ;
   
 }
 
 .text2 {
-  color:white;
+  color: #6b7280;
   font-size: 30px;
   
 } 
