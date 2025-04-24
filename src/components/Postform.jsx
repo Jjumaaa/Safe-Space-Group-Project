@@ -5,7 +5,15 @@ const Postform = () => {
 
     const handlePost = (e) => {
         e.preventDefault();
-        setMessage('Your post has been submitted!');
+        const title = document.getElementById('title').value.trim();
+        const description = document.querySelector('textarea[name="Description"]').value.trim();
+        const content = document.getElementById('content').value.trim();
+
+        if (!title || !description || !content) {
+            setMessage('Please fill in all the fields before submitting.');
+        } else {
+            setMessage('Your post has been submitted!');
+        }
     };
 
     return (
