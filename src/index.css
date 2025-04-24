@@ -1,6 +1,6 @@
 .navbar {
-    background-color: #DFE2DB;
-    color: #67023D;
+    background-color:white;
+    color: #1e293b;
     padding: 1rem 2rem;
     margin: 0 auto;
     border: 2px solid #000;
@@ -13,7 +13,7 @@
   }
   
   .navbar a {
-    color: #67023D;
+    color: #1e293b;
     text-decoration: none;
     font-weight: bold;
     margin-right: 20px;
@@ -22,7 +22,7 @@
   
   .navbar a:hover {
     color: #DFE2DB;
-    background-color: #67023D;
+    background-color: #6b7280;
     padding: 5px 10px;
     border-radius: 5px;
   }
@@ -32,7 +32,7 @@
   height: 100vh;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #e0d6f9, #d3bce8);
+  background-color: #1e293b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@
   background-color: white;
   padding: 3rem 2.5rem;
   border-radius: 20px;
-  box-shadow: 0 12px 35px rgba(103, 2, 61, 0.2);
+  box-shadow: 0 12px 35px #f7f9fc(103, 2, 61, 0.2);
   width: 100%;
   max-width: 400px;
   display: flex;
@@ -54,7 +54,7 @@
 
 
 .login h1 {
-  color: #67023D;
+  color: #1e293b;
   margin-bottom: 2rem;
 }
 
@@ -86,20 +86,14 @@
 .login button {
   width: 100%;
   padding: 0.9rem;
-  background-color: #67023D;
-  color: white;
+  background-color:#1e293b;
+  color: #f1f5f9;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
-.login button:hover {
-  background-color: #8a2c5c;
-}
-
-
 .login p {
   text-align: center;
   margin-top: 1rem;
@@ -111,10 +105,10 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  background-color: #f7f9fc;
+  background-color: #1e293b;
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLv9xjlSjV03F2VG28Wgpp2_f4EQzh6pe3-g&s)
+
 }
 
 .home {
@@ -124,29 +118,82 @@
 }
 
 .welcome {
-  background-color: #67023D;
+  background-color:#38bdf8;
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   text-align: center;
   max-width: 600px;
   width: 100%;
-  color: #f7f9fc;
+  color: #000;
   
 }
 
  .welcome:hover {
   transform: translateY(-4px);
+  box-shadow: white;
 } 
 
 .text1 {
-  color: #4a4a4a;
+  color:#38bdf8;
   font-size: 45px ;
   
 }
 
 .text2 {
-  color: #6b7280;
+  color:white;
   font-size: 30px;
   
 } 
+
+.aboutus{
+  background-color: #1e293b;
+  margin: 0;
+  padding: 0;
+
+}
+header {
+  background-color: #1e293b; 
+}
+.innerus {
+ 
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #1e293b;
+}
+h1 {
+  font-size: 2rem;
+  color: #60a5fa; 
+  margin-bottom: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+h2 {
+  font-size: 1.75rem;
+  color: #38bdf8;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #93c5fd;
+  margin-top: 1.5rem;
+}
+
+h4 {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f1f5f9;
+  margin-bottom: 1rem;
+}
+
+
+ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+  font-size: large;
+}
+
+
+
+
