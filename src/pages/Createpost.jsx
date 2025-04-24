@@ -1,12 +1,9 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Postform from '../components/Postform'
 
 const Createpost = () => {
   return (
-    <div>
-      <header><Navbar/></header>
-    <div>Createpost</div>
-    </div>
+    <div><Postform /></div>
   )
 }
 
