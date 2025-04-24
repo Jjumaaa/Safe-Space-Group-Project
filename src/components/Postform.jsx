@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
-
+import './Postform.css';
 const Postform = () => {
     const [message, setMessage] = useState('');
 
+    // Removed duplicate handlePost function
+
+    const [posts, setPosts] = useState([]);
+
     const handlePost = (e) => {
         e.preventDefault();
-        setMessage('Your post has been submitted!');
+        const title = e.target.title.value;
+        const description = e.target.Description.value;
+        const content = e.target.content.value;
+
+        if (title && description && content) {
+            const newPost = { title, description, content };
+            setPosts([...posts, newPost]);
+            setMessage('Your post has been submitted!');
+            e.target.reset();
+        } else {
+            setMessage('Please fill out all fields.');
+        }
     };
 
     return (
@@ -17,7 +32,7 @@ const Postform = () => {
                 <label htmlFor="title">Title:</label><br />
                 <input type="text" id="title" /><br />
                 <label htmlFor="description">Description:</label><br />
-                <textarea name="Description" rows="3" cols="45">Description</textarea><br />
+                <textarea name="Description" rows="3" cols="45"></textarea><br />
                 <label htmlFor="content">Content:</label><br />
                 <textarea id="content" name="content" rows="4" cols="50"></textarea><br />
                 <button type="submit">Post</button>
