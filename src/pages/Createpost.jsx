@@ -1,29 +1,39 @@
+// pages/Createpost.jsx
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 import Postform from '../components/Postform';
+import { useNavigate } from 'react-router-dom';
 
 const Createpost = () => {
-  const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
+  const [posts, setPosts] = useState([]); // Local state to store posts
 
-  const handleCreatePost = async (postData) => {
-    const newPost = {
-      ...postData,
-      id: Date.now(),
-      createdAt: new Date().toISOString()
-    };
-    
+  const handleSubmit = async (postData) => {
+    try {
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Generate a mock ID and add timestamp
+      const newPost = {
+        ...postData,
+        id: Date.now(),
+        createdAt: new Date().toISOString(),
+        image: "https://images.unsplash.com/photo-1709310960396-0e80bf7a9bde?w=600&auto=format" // Default image
+      };
 
-    setPosts(prev => [...prev, newPost]);
-    
-    return new Promise(resolve => setTimeout(() => resolve(newPost), 1000));
+      // Update local state (replace with real API later)
+      setPosts(prevPosts => [...prevPosts, newPost]);
+      console.log("New post created (mock):", newPost);
+
+      // Redirect to the posts page
+      navigate('/postpage');
+    } catch (error) {
+      console.error("Error creating post:", error);
+    }
   };
 
   return (
     <div className="create-post-page">
-      <Navbar />
-      <main>
-        <Postform onSubmit={handleCreatePost} />
-      </main>
+      <Postform onSubmit={handleSubmit} />
     </div>
   );
 };
