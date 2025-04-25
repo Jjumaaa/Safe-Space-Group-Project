@@ -1,45 +1,79 @@
 import React, { useState } from 'react';
-import './Postform.css';
-const Postform = () => {
-    const [message, setMessage] = useState('');
+import { useNavigate } from 'react-router-dom';
 
-    // Removed duplicate handlePost function
+const Postform = ({ onSubmit }) => {
+  const [formData, setFormData] = useState({
+    title: '',
+    content: '',
+    author: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
-    const [posts, setPosts] = useState([]);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
-    const handlePost = (e) => {
-        e.preventDefault();
-        const title = e.target.title.value;
-        const description = e.target.Description.value;
-        const content = e.target.content.value;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      await onSubmit(formData);
+      navigate('/postpage');
+    } catch (error) {
+      console.error('Error creating post:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
-        if (title && description && content) {
-            const newPost = { title, description, content };
-            setPosts([...posts, newPost]);
-            setMessage('Your post has been submitted!');
-            e.target.reset();
-        } else {
-            setMessage('Please fill out all fields.');
-        }
-    };
-
-    return (
-        <div>
-            <h1 id="Post">Safe space</h1>
-            <p>A space where you can post anything with no fear</p>
-            <h2 className="Form">Post Form</h2>
-            <form onSubmit={handlePost}>
-                <label htmlFor="title">Title:</label><br />
-                <input type="text" id="title" /><br />
-                <label htmlFor="description">Description:</label><br />
-                <textarea name="Description" rows="3" cols="45"></textarea><br />
-                <label htmlFor="content">Content:</label><br />
-                <textarea id="content" name="content" rows="4" cols="50"></textarea><br />
-                <button type="submit">Post</button>
-            </form>
-            {message && <p>{message}</p>}
+  return (
+    <div className="post-form-container">
+      <h2>Create New Blog Post</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            required
+          />
         </div>
-    );
+
+        <div className="form-group">
+          <label htmlFor="author">Author</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            value={formData.author}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="content">Content</label>
+          <textarea
+            id="content"
+            name="content"
+            value={formData.content}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Publishing...' : 'Publish Post'}
+        </button>
+      </form>
+    </div>
+  );
 };
 
-export default Postform
+export default Postform;
