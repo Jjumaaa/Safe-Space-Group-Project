@@ -1,59 +1,49 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { getPosts } from '../services/api';
+import Loading from './Loading';
+import './PostList.css';
 
-
-export default function PostList() {
-  // State management
+const PostList = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Inline API service functions
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-      if (!response.ok) throw new Error('Failed to fetch posts');
-      const data = await response.json();
-      setPosts(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const deletePost = async (id) => {
-    try {
-      await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        method: 'DELETE'
-      });
-      setPosts(posts.filter(post => post.id !== id));
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  // Fetch posts on component mount
   useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const data = await getPosts();
+        setPosts(data.slice(0, 10)); // Limit to 10 posts for demo
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchPosts();
   }, []);
 
-  if (loading) return <div className="loading">Loading posts...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
+  if (loading) return <Loading />;
+  if (error) return <div className="error-message">Error: {error}</div>;
 
   return (
-    <div className="post-list-container">
-      <h2>Recent Blog Posts</h2>
-      <div className="posts-grid">
-        {posts.slice(0, 10).map(post => ( // Only show first 10 posts
-          <div key={post.id} className="post-card">
-            <h3>{post.title}</h3>
-            <p>{post.body.substring(0, 100)}...</p>
-            <div className="post-actions">
-              <button onClick={() => deletePost(post.id)}>Delete</button>
-            </div>
+    <div className="post-list">
+      {posts.map((post) => (
+        <div key={post.id} className="post-card">
+          <h3>
+            <Link to={`/post/${post.id}`}>{post.title}</Link>
+          </h3>
+          <p>{post.body.substring(0, 100)}...</p>
+          <div className="post-actions">
+            <Link to={`/edit/${post.id}`} className="btn">
+              Edit
+            </Link>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
-}
+};
+
+export default PostList;
