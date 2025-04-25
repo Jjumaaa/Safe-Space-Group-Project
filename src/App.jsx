@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import Homeus from './components/Homeus'
+import PostList from './components/Postlist'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <>
       <Navbar/>
      <Homeus/>
+     <PostList/>
     </>
   )
 }

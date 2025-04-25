@@ -1,13 +1,12 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import PostDetail from '../components/PostDetail';
+import './PostPage.css';
 
-const Postpage = () => {
+const PostPage = () => {
   return (
-    <div>
-      <header><Navbar/></header>
-    <div>bruhhhhhhhhhhhhhhhhh</div>
+    <div className="post-page">
+      <PostDetail />
     </div>
-  )
-}
+  );
+};
 
-export default Postpage
+export default PostPage;
