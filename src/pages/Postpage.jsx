@@ -1,4 +1,4 @@
-import PostDetail from '../components/PostDetail';
+/*import PostDetail from '../components/PostDetail';
 import './PostPage.css';
 
 const PostPage = () => {
@@ -9,4 +9,5 @@ const PostPage = () => {
   );
 };
 
-export default PostPage;
+export default PostPage;*/
+

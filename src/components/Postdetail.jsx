@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getPost } from '../services/api';
 import Loading from './Loading';
-import './PostDetail.css';
+
 
 const PostDetail = () => {
   const { id } = useParams();
