@@ -2,7 +2,7 @@ import React from 'react'
 
 const Postlist = () => {
   return (
-    <div>Postlist</div>
+    <div>PostlistExample</div>
   )
 }
 
