@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Postform.css';
 
-const Postform = ({ onSubmit }) => {
-  const [formData, setFormData] = useState({
-    title: '',
-    content: '',
-    author: ''
-  });
+const Postform = ({ initialData, onSubmit, isEditing = false }) => {
+  const [formData, setFormData] = useState(
+    initialData || { title: '', content: '', author: '' }
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
 
@@ -23,7 +22,7 @@ const Postform = ({ onSubmit }) => {
       await onSubmit(formData);
       navigate('/postpage');
     } catch (error) {
-      console.error('Error creating post:', error);
+      console.error("Error:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -31,45 +30,42 @@ const Postform = ({ onSubmit }) => {
 
   return (
     <div className="post-form-container">
-      <h2>Create New Blog Post</h2>
+      <h2>{isEditing ? 'Edit Post' : 'Create New Post'}</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="title">Title</label>
+          <label>Title</label>
           <input
             type="text"
-            id="title"
             name="title"
             value={formData.title}
             onChange={handleChange}
             required
           />
         </div>
-
+        
         <div className="form-group">
-          <label htmlFor="author">Author</label>
-          <input
-            type="text"
-            id="author"
-            name="author"
-            value={formData.author}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="content">Content</label>
+          <label>Content</label>
           <textarea
-            id="content"
             name="content"
             value={formData.content}
             onChange={handleChange}
             required
           />
         </div>
-
+        
+        <div className="form-group">
+          <label>Author</label>
+          <input
+            type="text"
+            name="author"
+            value={formData.author}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        
         <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Publishing...' : 'Publish Post'}
+          {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
       </form>
     </div>
